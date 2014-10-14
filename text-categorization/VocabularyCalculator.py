@@ -1,0 +1,40 @@
+# Parses the training set and calculates the number of words in the vocabulary
+# for all classes
+
+# Imports
+import sys
+import os
+import os.path
+
+class VocabularyCalculator():
+    
+    def calculate(self, dir):
+        print "calculating Vocabulary..."
+        # iterate throgh all folders in dir
+        word_count = {}
+        vocabCount = 0
+        for classDir in os.listdir(dir):
+            file = None
+            for filename in os.listdir(os.path.join(dir, classDir)):
+                if "mega" in filename:
+                    #print filename
+                    file = open(os.path.join(dir, classDir, filename), "r")
+                    for line in file:
+                        words = line.split()
+                        for word in words:
+                            word = word.lower()
+                            # if word in present in dict add to the count else
+                            # add the word with count 1
+                            if word in word_count:
+                                word_count[word] += 1
+                            else: 
+                                word_count[word] = 1
+                    
+                    file.close()
+        
+        for word, count in word_count.iteritems():
+            vocabCount += count
+            
+        word_count = {}
+        print "Vocabulary Count: ", vocabCount
+        return vocabCount
