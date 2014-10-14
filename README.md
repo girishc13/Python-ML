@@ -8,3 +8,4 @@ In-progress repo where I have decided to keep my Python machine learning realate
 
 My first project will be on text cateogrization using Naive Bayes Classifier.
 	- Main .py file: nb_main.py
+	- In dev branch
