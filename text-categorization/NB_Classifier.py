@@ -10,11 +10,15 @@ class NB_Classifier():
         self.trainDir = trainDir
         self.testDir = testDir
         self.vocabCount = 0
+        self.classVocabCount = {}
         
         
     def train_classifier(self):
+        # calculate vocab count of all words in train set and each class
         vocabCalc = VocabularyCalculator()
         self.vocabCount = vocabCalc.calculate(self.trainDir)
+        self.classVocabCount = vocabCalc.getClassVocabCount()
+        print "Each class vocab count: " , self.classVocabCount
         
         # calculate priors
         priorCalc = PriorCalculator()
