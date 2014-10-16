@@ -18,29 +18,30 @@ class VocabularyCalculator():
     
     def calculate(self, dir):
         print "calculating Vocabulary..."
-        # iterate throgh all folders in dir
+        # iterate through all folders in dir
         self.vocabCount = 0
         for classDir in os.listdir(dir):
             file = None
-            for filename in os.listdir(os.path.join(dir, classDir)):
-                if "mega" in filename:
-                    # init each class count to zero
-                    self.classVocabCount[classDir] = 0
-                    #print filename
-                    file = open(os.path.join(dir, classDir, filename), "r")
-                    for line in file:
-                        words = line.split()
-                        for word in words:
-                            word = word.lower()
-                            self.classVocabCount[classDir] +=1
-                            # if word in present in dict add to the count else
-                            # add the word with count 1
-                            if word in self.word_count:
-                                self.word_count[word] += 1
-                            else: 
-                                self.word_count[word] = 1
-                    
-                    file.close()
+
+            filename = classDir + "_" + "mega.txt"
+
+            # init each class count to zero
+            self.classVocabCount[classDir] = 0
+            #print filename
+            file = open(os.path.join(dir, classDir, filename), "r")
+            for line in file:
+                words = line.split()
+                for word in words:
+                    word = word.lower()
+                    self.classVocabCount[classDir] +=1
+                    # if word in present in dict add to the count else
+                    # add the word with count 1
+                    if word in self.word_count:
+                        self.word_count[word] += 1
+                    else:
+                        self.word_count[word] = 1
+
+            file.close()
         
         for word, count in self.word_count.iteritems():
             self.vocabCount += count

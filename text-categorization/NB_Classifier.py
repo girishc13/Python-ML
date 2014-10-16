@@ -3,6 +3,7 @@
 # Imports
 from VocabularyCalculator import VocabularyCalculator
 from PriorCalculator import PriorCalculator
+from ConditionalProbabilityCalculator import ConditionalProbCalc
 
 class NB_Classifier(): 
     
@@ -24,5 +25,9 @@ class NB_Classifier():
         priorCalc = PriorCalculator()
         priorCalc.calculate(self.trainDir)
         print priorCalc.getPriors()
+
+        # calculate conditional probability
+        condProb = ConditionalProbCalc()
+        condProb.calculateConditionalProb(self.trainDir, self.classVocabCount, self.vocabCount)
         
     
