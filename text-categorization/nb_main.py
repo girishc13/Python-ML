@@ -12,3 +12,4 @@ if __name__ == "__main__":
     testDir = os.path.join(currentDir, "test")
     classifier = NB_Classifier(trainDir, testDir)
     classifier.train_classifier()
+

@@ -41,3 +41,6 @@ class ConditionalProbCalc():
         # print "Conditional Prob of words in class 'grain': "
         # for word in self.condProb['grain']:
         #     print word, ": ", self.condProb['grain'][word]
+
+    def getCondProb(self):
+        return self.condProb

@@ -4,6 +4,7 @@
 from VocabularyCalculator import VocabularyCalculator
 from PriorCalculator import PriorCalculator
 from ConditionalProbabilityCalculator import ConditionalProbCalc
+from PosteriorProbabilityCalculator import PosteriorProbCalc
 
 class NB_Classifier(): 
     
@@ -12,6 +13,8 @@ class NB_Classifier():
         self.testDir = testDir
         self.vocabCount = 0
         self.classVocabCount = {}
+        self.priors = {}
+        self.condProb = {}
         
         
     def train_classifier(self):
@@ -24,10 +27,14 @@ class NB_Classifier():
         # calculate priors
         priorCalc = PriorCalculator()
         priorCalc.calculate(self.trainDir)
-        print priorCalc.getPriors()
+        self.priors = priorCalc.getPriors()
+        print self.priors
 
         # calculate conditional probability
-        condProb = ConditionalProbCalc()
-        condProb.calculateConditionalProb(self.trainDir, self.classVocabCount, self.vocabCount)
+        condProbCalc = ConditionalProbCalc()
+        condProbCalc.calculateConditionalProb(self.trainDir, self.classVocabCount, self.vocabCount)
+        self.condProb = condProbCalc.getCondProb()
         
-    
+    def test_classifier(self):
+        postProbCalc = PosteriorProbCalc()
+        postProbCalc.calcPosteriorProb(self.testDir, self.priors, self.condProb)
