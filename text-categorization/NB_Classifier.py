@@ -37,4 +37,5 @@ class NB_Classifier():
         
     def test_classifier(self):
         postProbCalc = PosteriorProbCalc()
-        postProbCalc.calcPosteriorProb(self.testDir, self.priors, self.condProb)
+        cmap = postProbCalc.calcPosteriorProb(self.testDir, self.priors, self.condProb)
+        print "Posteritor Probs of 'grain' test class: ", cmap['grain']

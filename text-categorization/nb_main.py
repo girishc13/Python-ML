@@ -13,3 +13,5 @@ if __name__ == "__main__":
     classifier = NB_Classifier(trainDir, testDir)
     classifier.train_classifier()
 
+    classifier.test_classifier()
+
