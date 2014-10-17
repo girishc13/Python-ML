@@ -1,7 +1,7 @@
 Python-ML
 =========
 
-Machine Learning projects in Python
+Machine Learning projects in Python using the SciPy stack.
 
 
 In-progress repo where I have decided to keep my Python machine learning realated projects as I work on them.
