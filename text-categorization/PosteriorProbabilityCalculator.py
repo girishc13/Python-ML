@@ -38,7 +38,7 @@ class PosteriorProbCalc():
 
 
              # calculate currentCmap
-             currentCmap[classDir] = {}
+             totalCmap[classDir] = {}
              tempFile = open("temp.txt", "w")
              for trainClass, classPrior in priors.iteritems():
                  prod = np.float128(1.0)
@@ -55,11 +55,16 @@ class PosteriorProbCalc():
                          tempFile.write("\n")
 
 
-                 currentCmap[classDir][trainClass] = prod * np.float128(classPrior)
+                 currentCmap[trainClass] = prod * np.float128(classPrior)
 
              # print "Actual Test class: ", classDir, ", Estimated Test class: " , max(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
                  totalCmap[classDir] = currentCmap
+             # print "Current cmap: ", currentCmap
+             # print "max: ", max(currentCmap.values())
+             # print "\n"
 
-             print "Actual Test class: ", classDir, ", Estimated Test class: " , max(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
+             print "Actual Test class: ", classDir, ", Estimated Test class: " , max(currentCmap.iteritems(),
+             key=operator.itemgetter(1))[0]
+             # print "\n"
 
          return totalCmap

@@ -40,7 +40,7 @@ class NB_Classifier():
         totalCmap = postProbCalc.calcPosteriorProb(self.testDir, self.priors, self.condProb)
         # print "Posterior Probs of 'earn' test class: ", totalCmap['earn']
 
-        print "\n"
-        for testClass, cmap in totalCmap.iteritems():
-            print "Posterior probality of test class '", testClass ,"': ", cmap.values()
-            print "\n"
+        # print "\n"
+        # for testClass, cmap in totalCmap.iteritems():
+        #     print "Posterior probality of test class '", testClass ,"': ", cmap.values()
+        #     print "\n"
