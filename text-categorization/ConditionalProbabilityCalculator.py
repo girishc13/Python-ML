@@ -36,7 +36,7 @@ class ConditionalProbCalc():
                 self.condProb[classDir][word] = (self.condProb[classDir][word] + 1) / denom
 
 
-            print "Number of unique words in ", classDir, " is ", len(self.condProb[classDir])
+            # print "Number of unique words in ", classDir, " is ", len(self.condProb[classDir])
 
         # print "Conditional Prob of words in class 'grain': "
         # for word in self.condProb['grain']:

@@ -22,13 +22,13 @@ class NB_Classifier():
         vocabCalc = VocabularyCalculator()
         self.vocabCount = vocabCalc.calculate(self.trainDir)
         self.classVocabCount = vocabCalc.getClassVocabCount()
-        print "Each class vocab count: " , self.classVocabCount
+        print "Each class word count: " , self.classVocabCount
         
         # calculate priors
         priorCalc = PriorCalculator()
         priorCalc.calculate(self.trainDir)
         self.priors = priorCalc.getPriors()
-        print self.priors
+        print "Posterior Probs: ", self.priors
 
         # calculate conditional probability
         condProbCalc = ConditionalProbCalc()
@@ -37,5 +37,10 @@ class NB_Classifier():
         
     def test_classifier(self):
         postProbCalc = PosteriorProbCalc()
-        cmap = postProbCalc.calcPosteriorProb(self.testDir, self.priors, self.condProb)
-        print "Posteritor Probs of 'grain' test class: ", cmap['grain']
+        totalCmap = postProbCalc.calcPosteriorProb(self.testDir, self.priors, self.condProb)
+        # print "Posterior Probs of 'earn' test class: ", totalCmap['earn']
+
+        print "\n"
+        for testClass, cmap in totalCmap.iteritems():
+            print "Posterior probality of test class '", testClass ,"': ", cmap.values()
+            print "\n"

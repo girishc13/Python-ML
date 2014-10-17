@@ -15,7 +15,7 @@ class PriorCalculator():
         return self.priors
         
     def calculate(self, dir):
-        print "Calculating priors..."
+        # print "Calculating priors..."
         numDocsInClass = {}
         totalNumFiles = 0
         for classDir in os.listdir(dir):            

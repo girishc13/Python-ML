@@ -17,7 +17,7 @@ class VocabularyCalculator():
         
     
     def calculate(self, dir):
-        print "calculating Vocabulary..."
+        # print "calculating Vocabulary..."
         # iterate through all folders in dir
         self.vocabCount = 0
         for classDir in os.listdir(dir):
