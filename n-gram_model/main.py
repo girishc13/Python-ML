@@ -19,7 +19,7 @@ if __name__ == "__main__":
     # estimating probability of test text
     bigramCalc.estimateProbability(testFileName)
     # predict next word
-    bigramCalc.predict("Inc")
+    # bigramCalc.predict("Inc")
 
     # trigram calculations
     trigramCalc = TrigramMLE(textFileName)
@@ -27,5 +27,18 @@ if __name__ == "__main__":
     # estimating probability of test text
     trigramCalc.estimateProbability(testFileName)
     # predict next word
-    trigramCalc.predict(("the", "for"))
+    # trigramCalc.predict(("the", "for"))
 
+
+    user_input = ''
+
+    while 1:
+        user_input = raw_input("Enter two words or 'quit' to exit: ")
+
+        if user_input == 'quit':
+            break
+
+        inputList = user_input.split()
+        inputTuple = (inputList[1], inputList[0])
+        # print inputTuple
+        trigramCalc.predict(inputTuple)

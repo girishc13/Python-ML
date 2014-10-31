@@ -88,9 +88,9 @@ class TrigramMLE():
 
         for gram, prob in self.trigramEst.iteritems():
             if precedingTuple == gram[1]:
-                print gram, prob
+                # print gram, prob
                 possibilities[gram] = prob
 
-
-        predictedValue = max(possibilities.iteritems(), key=operator.itemgetter(1))[0]
-        print "Bigram predicted word for ", precedingTuple, " is: ", predictedValue[0]
+        if len(possibilities):
+            predictedValue = max(possibilities.iteritems(), key=operator.itemgetter(1))[0]
+        print "Bigram predicted word for '", precedingTuple[1], "' '", precedingTuple[0], "' is: ", predictedValue[0]
