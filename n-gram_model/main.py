@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # trigram calculations
     trigramCalc = TrigramMLE(textFileName)
-    trigramCalc.calculate(bigramCalc.getBigramEst())
+    trigramCalc.calculate(bigramCalc.getBigramCount())
     # estimating probability of test text
     trigramCalc.estimateProbability(testFileName)
     # predict next word

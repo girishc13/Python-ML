@@ -86,11 +86,15 @@ class TrigramMLE():
     def predict(self, precedingTuple):
         possibilities = {}
 
+        print "Possibilities: "
         for gram, prob in self.trigramEst.iteritems():
             if precedingTuple == gram[1]:
                 # print gram, prob
+                print (precedingTuple[1], precedingTuple[0]), ": " , gram[0], " with probability: ", prob, " perplexity: ", pow(prob, -(1/3))
                 possibilities[gram] = prob
 
         if len(possibilities):
             predictedValue = max(possibilities.iteritems(), key=operator.itemgetter(1))[0]
-        print "Bigram predicted word for '", precedingTuple[1], "' '", precedingTuple[0], "' is: ", predictedValue[0]
+            print "Trigram predicted word for '", precedingTuple[1], "' '", precedingTuple[0], "' is: ", predictedValue[0]
+        else:
+            print "Input word sequence was not seen before."
