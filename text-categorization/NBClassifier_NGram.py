@@ -62,8 +62,6 @@ class NBClassifier_NGram():
     # test the classifier using n-gram models
     def test_classifier(self):
 
-        print ""
-
         # calculate conditional probabilities of the test class using bigram model
         self.bigramCalc.estimateProbability(self.testDir, self.priors)
 

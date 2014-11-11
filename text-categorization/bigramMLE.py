@@ -6,6 +6,7 @@ import re
 import operator
 import os
 import numpy as np
+from math import log
 
 class BigramMLE():
 
@@ -86,7 +87,8 @@ class BigramMLE():
 
                 tempFile = open("temp_bigram.txt", "w")
                 for trainClass, classPrior in priorProb.iteritems():
-                    probability = np.float128(1.0)
+                    # probability = np.float128(1.0)
+                    probability = np.float128(0.0)
 
                     prevWord = "<s>"
                     for sentence in sentences:
@@ -102,7 +104,10 @@ class BigramMLE():
                                 # probability *= self.bigramProb[trainClass][bigramTuple]
 
                                 # calculate in terms of perplexity
-                                probability  += pow(self.bigramProb[trainClass][bigramTuple], -(1/3))
+                                # probability  += pow(self.bigramProb[trainClass][bigramTuple], -(1/3))
+
+                                # calculate in terms of log
+                                probability += log(self.bigramProb[trainClass][bigramTuple])
 
                                 tempFile.write(trainClass + " " + str(bigramTuple) + " " + str(self.bigramProb[trainClass][bigramTuple]) + " "
                                                 + str(probability))
@@ -112,13 +117,15 @@ class BigramMLE():
                             prevWord = word
 
                     # currentCmap[trainClass] = probability * np.float128(classPrior)
-                    currentCmap[trainClass] = probability
+                    # currentCmap[trainClass] = probability
+                    currentCmap[trainClass] = probability + log(classPrior)
 
                 totalCmap[classDir] = currentCmap
                 # print "Total Conditional Probability Map: "
                 # print totalCmap[classDir]
 
-                estimatedClass = max(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
+                # estimatedClass = max(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
+                estimatedClass = min(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
                 if(estimatedClass == classDir):
                     correctClassEstimation += 1
                 print "Estimated Class for test class", classDir, "is: ", estimatedClass

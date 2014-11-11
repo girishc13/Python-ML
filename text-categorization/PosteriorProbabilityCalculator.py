@@ -7,7 +7,7 @@ import os
 import os.path
 import numpy as np
 import operator
-from VocabularyCalculator import VocabularyCalculator
+from math import log
 
 class PosteriorProbCalc():
 
@@ -47,12 +47,14 @@ class PosteriorProbCalc():
                 totalCmap[filename] = {}
                 tempFile = open("temp.txt", "w")
                 for trainClass, classPrior in priors.iteritems():
-                    prod = np.float128(1.0)
+                    # prod = np.float128(1.0)
+                    prod = np.float128(0.0)
 
                     for word, count in docVocab.iteritems():
                         # print word, count
                         if word in condProb[trainClass]:
-                            prod = prod * condProb[trainClass][word]
+                            # prod = prod * condProb[trainClass][word]
+                            prod += log(condProb[trainClass][word])
                             # print prod
                             # if condProb[trainClass][word] == 0.0:
                             # print trainClass, word, condProb[trainClass][word]
@@ -61,10 +63,14 @@ class PosteriorProbCalc():
                             tempFile.write("\n")
 
 
-                    currentCmap[trainClass] = prod * np.float128(classPrior)
+                    # currentCmap[trainClass] = prod * np.float128(classPrior)
+
+                    maxClassPrior = min(priors.iteritems(), key=operator.itemgetter(1))[1]
+                    currentCmap[trainClass] = prod + np.float128(log(maxClassPrior))
 
                 totalCmap[filename] = currentCmap
-                estimatedClass = max(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
+                # estimatedClass = max(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
+                estimatedClass = min(currentCmap.iteritems(), key=operator.itemgetter(1))[0]
                 print "Actual file class: ", classDir, ", Estimated file class: " , estimatedClass
                 # print "\n"
                 if(estimatedClass == classDir):

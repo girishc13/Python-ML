@@ -12,6 +12,9 @@ if __name__ == "__main__":
     trainDir = os.path.join(currentDir, "train")
     testDir = os.path.join(currentDir, "test")
     classifier = NBClassifier_NGram(trainDir, testDir)
+    print "Training classifier..."
     classifier.train_classifier()
 
+    print ""
+    print "Testing classifier..."
     classifier.test_classifier()
