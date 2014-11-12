@@ -63,9 +63,9 @@ class NBClassifier_NGram():
     def test_classifier(self):
 
         # calculate conditional probabilities of the test class using bigram model
-        self.bigramCalc.estimateProbability(self.testDir, self.priors)
+        self.bigramCalc.estimateProbability(self.testDir, self.priors, self.unigramProb)
 
 
         print ""
         # calculate conditional probabilities of the test class using trigram model
-        self.trigramCalc.estimateProbability(self.testDir, self.priors)
+        self.trigramCalc.estimateProbability(self.testDir, self.priors, self.unigramProb, self.bigramProb)

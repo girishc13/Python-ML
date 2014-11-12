@@ -14,6 +14,8 @@ class BigramMLE():
         self.dirName = dirName
         self.bigramProb = {}
         self.bigramCount = {}
+        self.lambda1 = 0.06
+        self.lambda2 = 1 - self.lambda1
 
     # calculates the bigram model training parameters
     def calculate(self, unigramCount):
@@ -23,39 +25,43 @@ class BigramMLE():
             self.bigramProb[classDir] = {}
             self.bigramCount[classDir] = {}
 
-            filename = classDir + "_" + "mega.txt"
+            # filename = classDir + "_" + "mega.txt"
 
-            textFile = open(os.path.join(self.dirName, classDir, filename), "r")
-            data = textFile.read()
-            sentences = re.split(r'( *[\.])', data)
-            # print sentences
+            for filename in os.listdir(os.path.join(self.dirName, classDir)):
 
-            prevWord = "<s>"
-            for sentence in sentences:
-                # print sentence
-                for word in sentence.split():
-                    if word == ".":
-                        word = "<s>"
+                if "mega" not in filename:
 
-                    bigramTuple = (word, prevWord)
+                    textFile = open(os.path.join(self.dirName, classDir, filename), "r")
+                    data = textFile.read()
+                    sentences = re.split(r'( *[\.])', data)
+                    # print sentences
 
-                    if bigramTuple in self.bigramCount[classDir]:
-                        self.bigramCount[classDir][bigramTuple] += 1
-                    else:
-                        self.bigramCount[classDir][bigramTuple] = 1
+                    prevWord = "<s>"
+                    for sentence in sentences:
+                        # print sentence
+                        for word in sentence.split():
+                            if word == ".":
+                                word = "<s>"
 
-                    prevWord = word
+                            bigramTuple = (word, prevWord)
 
-            # calculate count by dividing from unigram count
-            for gram, count in self.bigramCount[classDir].iteritems():
-                precedingGram = gram[1]
-                self.bigramProb[classDir][gram] = self.bigramCount[classDir][gram] / unigramCount[classDir][precedingGram]
-                # print gram, self.bigramEst[gram], precedingGram, unigramCount[precedingGram]
+                            if bigramTuple in self.bigramCount[classDir]:
+                                self.bigramCount[classDir][bigramTuple] += 1
+                            else:
+                                self.bigramCount[classDir][bigramTuple] = 1
+
+                            prevWord = word
+
+                    # calculate count by dividing from unigram count
+                    for gram, count in self.bigramCount[classDir].iteritems():
+                        precedingGram = gram[1]
+                        self.bigramProb[classDir][gram] = self.bigramCount[classDir][gram] / unigramCount[classDir][precedingGram]
+                        # print gram, self.bigramEst[gram], precedingGram, unigramCount[precedingGram]
 
 
-            # print calculated probaility
-            # for gram, count in self.bigramEst.iteritems():
-            #     print gram, count
+                        # print calculated probaility
+                        # for gram, count in self.bigramEst.iteritems():
+                        #     print gram, count
 
     # Returns the bigram calculations for the initialized text
     def getBigramProb(self):
@@ -66,7 +72,7 @@ class BigramMLE():
         return self.bigramCount
 
     # estimates the probability of the input text from the calculated estimates
-    def estimateProbability(self, dir, priorProb):
+    def estimateProbability(self, dir, priorProb, unigramProb):
 
         totalCmap = {}
         print "Estimating using Bigram model..."
@@ -99,19 +105,17 @@ class BigramMLE():
 
                             bigramTuple = (word, prevWord)
 
+                            # linear interpolation smoothing
+                            pLogBigram = 0.0
+                            pLogUnigram = 0.0
+
                             if self.bigramProb[trainClass].has_key(bigramTuple):
-                                # print bigramTuple, self.bigramEst[bigramTuple], probability
-                                # probability *= self.bigramProb[trainClass][bigramTuple]
+                                pLogBigram = log(self.bigramProb[trainClass][bigramTuple])
 
-                                # calculate in terms of perplexity
-                                # probability  += pow(self.bigramProb[trainClass][bigramTuple], -(1/3))
+                            if unigramProb[trainClass].has_key(word):
+                                pLogUnigram = log(unigramProb[trainClass][word])
 
-                                # calculate in terms of log
-                                probability += log(self.bigramProb[trainClass][bigramTuple])
-
-                                tempFile.write(trainClass + " " + str(bigramTuple) + " " + str(self.bigramProb[trainClass][bigramTuple]) + " "
-                                                + str(probability))
-                                tempFile.write("\n")
+                            probability += (self.lambda2 * pLogBigram) + (self.lambda1 * pLogUnigram)
 
 
                             prevWord = word

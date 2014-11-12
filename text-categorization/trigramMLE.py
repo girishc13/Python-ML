@@ -15,6 +15,9 @@ class TrigramMLE():
         self.dirName = dirName
         self.trigramProb = {}
         self.trigramCount = {}
+        self.lambda1 = 0.015
+        self.lambda2 = 0.01
+        self.lambda3 = 1 - self.lambda2 - self.lambda1
 
     # calculates the trigram model training parameters
     def calculate(self, bigramCount):
@@ -24,42 +27,45 @@ class TrigramMLE():
             self.trigramProb[classDir] = {}
             self.trigramCount[classDir] = {}
 
-            filename = classDir + "_" + "mega.txt"
+            # filename = classDir + "_" + "mega.txt"
 
-            textFile = open(os.path.join(self.dirName, classDir, filename), "r")
-            data = textFile.read()
-            sentences = re.split(r'( *[\.])', data)
+            for filename in os.listdir(os.path.join(self.dirName, classDir)):
 
-            # do trigram counting of words
-            prevTuple = ("<s>", "<s>")
-            for sentence in sentences:
+                if "mega" not in filename:
+                    textFile = open(os.path.join(self.dirName, classDir, filename), "r")
+                    data = textFile.read()
+                    sentences = re.split(r'( *[\.])', data)
 
-                for word in sentence.split():
-                    if word == ".":
-                        word = "<s>"
+                    # do trigram counting of words
+                    prevTuple = ("<s>", "<s>")
+                    for sentence in sentences:
 
-                    trigramTuple = (word, prevTuple)
+                        for word in sentence.split():
+                            if word == ".":
+                                word = "<s>"
 
-                    # count the trigram
-                    if trigramTuple in self.trigramCount:
-                        self.trigramCount[classDir][trigramTuple] += 1
-                    else:
-                        self.trigramCount[classDir][trigramTuple] = 1
+                            trigramTuple = (word, prevTuple)
 
-                    preceedingWord = prevTuple[0]
-                    prevTuple = (word, preceedingWord)
+                            # count the trigram
+                            if trigramTuple in self.trigramCount:
+                                self.trigramCount[classDir][trigramTuple] += 1
+                            else:
+                                self.trigramCount[classDir][trigramTuple] = 1
 
-            # print self.trigramCount
+                            preceedingWord = prevTuple[0]
+                            prevTuple = (word, preceedingWord)
 
-            # calculate probalities using the count
-            for gram, count in self.trigramCount[classDir].iteritems():
-                preceedingTuple = gram[1]
-                if bigramCount[classDir].has_key(preceedingTuple):
-                    self.trigramProb[classDir][gram] = self.trigramCount[classDir][gram] / bigramCount[classDir][preceedingTuple]
+                    # print self.trigramCount
 
-            # print calculated probability
-            # for gram, prob in self.trigramEst.iteritems():
-            #     print gram, prob
+                    # calculate probalities using the count
+                    for gram, count in self.trigramCount[classDir].iteritems():
+                        preceedingTuple = gram[1]
+                        if bigramCount[classDir].has_key(preceedingTuple):
+                            self.trigramProb[classDir][gram] = self.trigramCount[classDir][gram] / bigramCount[classDir][preceedingTuple]
+
+                    # print calculated probability
+                    # for gram, prob in self.trigramEst.iteritems():
+                    #     print gram, prob
 
     # Returns the trigram calculations for initialized text
     def getTrigramProb(self):
@@ -70,7 +76,7 @@ class TrigramMLE():
         return self.trigramCount
 
     # estimates the probability of the input text from the calculated estimates
-    def estimateProbability(self, dir, priorProb):
+    def estimateProbability(self, dir, priorProb, unigramProb, bigramProb):
 
         totalCmap = {}
         print "Estimating using Trigram model..."
@@ -103,18 +109,22 @@ class TrigramMLE():
 
                             trigramTuple = (word, prevTuple)
 
+                            pLogTrigram = 0.0
+                            pLogBigram = 0.0
+                            pLogUnigram = 0.0
+
                             if self.trigramProb[trainClass].has_key(trigramTuple):
-                                # probability *= self.trigramProb[trigramTuple]
+                                pLogTrigram = log(self.trigramProb[trainClass][trigramTuple])
 
-                                # calculate in terms of perplexity
-                                # probability += pow(self.trigramProb[trainClass][trigramTuple], -(1/3))
+                            bigramTuple = (word, prevTuple[1])
+                            if bigramProb[trainClass].has_key(bigramTuple):
+                                pLogBigram = log(bigramProb[trainClass][bigramTuple])
 
-                                # calculate in terms of log
-                                probability += log(self.trigramProb[trainClass][trigramTuple])
+                            if unigramProb[trainClass].has_key(word):
+                                pLogUnigram = log(unigramProb[trainClass][word])
 
-                                tempFile.write(trainClass + " " + str(trigramTuple) + " " + str(self.trigramProb[trainClass][trigramTuple]) + " "
-                                                + str(probability))
-                                tempFile.write("\n")
+                            probability += (self.lambda3 * pLogTrigram) + (self.lambda2 * pLogBigram) + (self.lambda1 * pLogUnigram)
+
 
                             preceedingWord = prevTuple[0]
                             prevTuple = (word, preceedingWord)
