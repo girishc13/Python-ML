@@ -27,45 +27,42 @@ class TrigramMLE():
             self.trigramProb[classDir] = {}
             self.trigramCount[classDir] = {}
 
-            # filename = classDir + "_" + "mega.txt"
+            filename = classDir + "_" + "mega.txt"
 
-            for filename in os.listdir(os.path.join(self.dirName, classDir)):
+            textFile = open(os.path.join(self.dirName, classDir, filename), "r")
+            data = textFile.read()
+            sentences = re.split(r'( *[\.])', data)
 
-                if "mega" not in filename:
-                    textFile = open(os.path.join(self.dirName, classDir, filename), "r")
-                    data = textFile.read()
-                    sentences = re.split(r'( *[\.])', data)
+            # do trigram counting of words
+            prevTuple = ("<s>", "<s>")
+            for sentence in sentences:
 
-                    # do trigram counting of words
-                    prevTuple = ("<s>", "<s>")
-                    for sentence in sentences:
+                for word in sentence.split():
+                    if word == ".":
+                        word = "<s>"
 
-                        for word in sentence.split():
-                            if word == ".":
-                                word = "<s>"
+                    trigramTuple = (word, prevTuple)
 
-                            trigramTuple = (word, prevTuple)
+                    # count the trigram
+                    if trigramTuple in self.trigramCount:
+                        self.trigramCount[classDir][trigramTuple] += 1
+                    else:
+                        self.trigramCount[classDir][trigramTuple] = 1
 
-                            # count the trigram
-                            if trigramTuple in self.trigramCount:
-                                self.trigramCount[classDir][trigramTuple] += 1
-                            else:
-                                self.trigramCount[classDir][trigramTuple] = 1
+                    preceedingWord = prevTuple[0]
+                    prevTuple = (word, preceedingWord)
 
-                            preceedingWord = prevTuple[0]
-                            prevTuple = (word, preceedingWord)
+            # print self.trigramCount
 
-                    # print self.trigramCount
+            # calculate probalities using the count
+            for gram, count in self.trigramCount[classDir].iteritems():
+                preceedingTuple = gram[1]
+                if bigramCount[classDir].has_key(preceedingTuple):
+                    self.trigramProb[classDir][gram] = self.trigramCount[classDir][gram] / bigramCount[classDir][preceedingTuple]
 
-                    # calculate probalities using the count
-                    for gram, count in self.trigramCount[classDir].iteritems():
-                        preceedingTuple = gram[1]
-                        if bigramCount[classDir].has_key(preceedingTuple):
-                            self.trigramProb[classDir][gram] = self.trigramCount[classDir][gram] / bigramCount[classDir][preceedingTuple]
-
-                    # print calculated probability
-                    # for gram, prob in self.trigramEst.iteritems():
-                    #     print gram, prob
+            # print calculated probability
+            # for gram, prob in self.trigramEst.iteritems():
+            #     print gram, prob
 
     # Returns the trigram calculations for initialized text
     def getTrigramProb(self):

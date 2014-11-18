@@ -25,43 +25,39 @@ class BigramMLE():
             self.bigramProb[classDir] = {}
             self.bigramCount[classDir] = {}
 
-            # filename = classDir + "_" + "mega.txt"
+            filename = classDir + "_" + "mega.txt"
 
-            for filename in os.listdir(os.path.join(self.dirName, classDir)):
+            textFile = open(os.path.join(self.dirName, classDir, filename), "r")
+            data = textFile.read()
+            sentences = re.split(r'( *[\.])', data)
+            # print sentences
 
-                if "mega" not in filename:
+            prevWord = "<s>"
+            for sentence in sentences:
+                # print sentence
+                for word in sentence.split():
+                    if word == ".":
+                        word = "<s>"
 
-                    textFile = open(os.path.join(self.dirName, classDir, filename), "r")
-                    data = textFile.read()
-                    sentences = re.split(r'( *[\.])', data)
-                    # print sentences
+                    bigramTuple = (word, prevWord)
 
-                    prevWord = "<s>"
-                    for sentence in sentences:
-                        # print sentence
-                        for word in sentence.split():
-                            if word == ".":
-                                word = "<s>"
+                    if bigramTuple in self.bigramCount[classDir]:
+                        self.bigramCount[classDir][bigramTuple] += 1
+                    else:
+                        self.bigramCount[classDir][bigramTuple] = 1
 
-                            bigramTuple = (word, prevWord)
+                    prevWord = word
 
-                            if bigramTuple in self.bigramCount[classDir]:
-                                self.bigramCount[classDir][bigramTuple] += 1
-                            else:
-                                self.bigramCount[classDir][bigramTuple] = 1
-
-                            prevWord = word
-
-                    # calculate count by dividing from unigram count
-                    for gram, count in self.bigramCount[classDir].iteritems():
-                        precedingGram = gram[1]
-                        self.bigramProb[classDir][gram] = self.bigramCount[classDir][gram] / unigramCount[classDir][precedingGram]
-                        # print gram, self.bigramEst[gram], precedingGram, unigramCount[precedingGram]
+            # calculate count by dividing from unigram count
+            for gram, count in self.bigramCount[classDir].iteritems():
+                precedingGram = gram[1]
+                self.bigramProb[classDir][gram] = self.bigramCount[classDir][gram] / unigramCount[classDir][precedingGram]
+                # print gram, self.bigramEst[gram], precedingGram, unigramCount[precedingGram]
 
 
-                        # print calculated probaility
-                        # for gram, count in self.bigramEst.iteritems():
-                        #     print gram, count
+                # print calculated probaility
+                # for gram, count in self.bigramEst.iteritems():
+                #     print gram, count
 
     # Returns the bigram calculations for the initialized text
     def getBigramProb(self):
