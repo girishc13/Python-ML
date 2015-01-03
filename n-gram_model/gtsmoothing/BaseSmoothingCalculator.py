@@ -8,7 +8,7 @@ from math import log, fabs, sqrt, exp
 __author__ = 'girish'
 
 
-class BaseSmoothingCalculator:
+class BaseSmoothingCalculator(object):
     def smoothed(self, i):
         return exp(self.intercept + self.slope * log(i))
 
@@ -115,3 +115,10 @@ class BaseSmoothingCalculator:
             # print "Probabilities: ", self.p
             # print "Probability Sum: ", PZero + sum(self.p)
             # print self.PZero, self.probabilityEstimatesForCounts
+
+    def getSmoothedCount(self, count):
+        if count in self.r:
+            index = self.r.index(count)
+            return self.rStar[index]
+        else:
+            return self.PZero

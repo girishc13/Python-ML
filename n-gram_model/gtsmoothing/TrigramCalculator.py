@@ -54,5 +54,7 @@ class TrigramCalculator(BaseSmoothingCalculator):
                         if trigramTuple in self.counts:
                             count = self.counts[trigramTuple]
                             probEst += log(self.probabilityEstimatesForCounts[count])
+                        else:
+                            probEst += log(self.PZero)
 
             return probEst

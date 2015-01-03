@@ -39,3 +39,10 @@ class UnigramCalculator(BaseSmoothingCalculator):
                     # probEst *= self.PZero
 
         return probEst
+
+    def getCountForWord(self, word):
+        if word in self.counts.keys():
+            count = self.counts[word]
+            return self.getSmoothedCount(count)
+        else:
+            return self.getSmoothedCount(0)

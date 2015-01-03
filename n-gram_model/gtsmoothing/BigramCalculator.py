@@ -48,8 +48,8 @@ class BigramCalculator(BaseSmoothingCalculator):
                         count = self.counts[bigramTuple]
                         probEst += log(self.probabilityEstimatesForCounts[count])
                         # probEst *= self.UnigramEst[count]
-                    # else:
-                    #     probEst += log(self.PZero)
+                    else:
+                        probEst += log(self.PZero)
                     #     # probEst *= self.PZero
 
         return probEst
