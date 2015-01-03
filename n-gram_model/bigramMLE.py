@@ -13,7 +13,7 @@ class BigramMLE():
         self.bigramCount = {}
 
     # calculates the bigram model training parameters
-    def calculate(self, unigramCount):
+    def calculateForAllDirectories(self, unigramCount):
         textFile = open(self.textFileName, "r")
         data = textFile.read()
         sentences = re.split(r'( *[\.])', data)
@@ -35,7 +35,7 @@ class BigramMLE():
 
                 prevWord = word
 
-        # calculate count by dividing from unigram count
+        # calculateForAllDirectories count by dividing from unigram count
         for gram, count in self.bigramCount.iteritems():
             precedingGram = gram[1]
             self.bigramEst[gram] = self.bigramCount[gram] / unigramCount[precedingGram]

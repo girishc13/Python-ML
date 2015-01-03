@@ -11,7 +11,7 @@ class UnigramMLE():
         self.unigramCount = {}
 
     # calculates the unigram model training parameters
-    def calculate(self):
+    def calculateForAllDirectories(self):
         textFile = open(self.textFileName, "r")
         data = textFile.read()
         sentences = re.split(r'( *[\.])', data)
@@ -31,7 +31,7 @@ class UnigramMLE():
                 else:
                     self.unigramCount[word] = 1
 
-        # calculate the actual MLE estimate by dividing the word count by total no. of words
+        # calculateForAllDirectories the actual MLE estimate by dividing the word count by total no. of words
         for word, count in self.unigramCount.iteritems():
             self.unigramEst[word] = count / totalWordCount
 

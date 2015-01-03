@@ -14,7 +14,7 @@ class TrigramMLE():
         self.trigramCount = {}
 
     # calculates the trigram model training parameters
-    def calculate(self, bigramCount):
+    def calculateForAllDirectories(self, bigramCount):
         textFile = open(self.textFileName, "r")
         data = textFile.read()
         sentences = re.split(r'( *[\.])', data)
@@ -40,7 +40,7 @@ class TrigramMLE():
 
         # print self.trigramCount
 
-        # calculate probalities using the count
+        # calculateForAllDirectories probalities using the count
         for gram, count in self.trigramCount.iteritems():
             preceedingTuple = gram[1]
             if bigramCount.has_key(preceedingTuple):

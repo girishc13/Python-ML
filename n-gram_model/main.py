@@ -11,11 +11,11 @@ if __name__ == "__main__":
     testFileName = "testText.txt"
     # unigram calculatiorns
     unigramCalc = UnigramMLE(textFileName)
-    unigramCalc.calculate()
+    unigramCalc.calculateForAllDirectories()
 
     # bigram calculations
     bigramCalc = BigramMLE(textFileName)
-    bigramCalc.calculate(unigramCalc.getUnigramCount())
+    bigramCalc.calculateForAllDirectories(unigramCalc.getUnigramCount())
     # estimating probability of test text
     bigramCalc.estimateProbability(testFileName)
     # predict next word
@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # trigram calculations
     trigramCalc = TrigramMLE(textFileName)
-    trigramCalc.calculate(bigramCalc.getBigramCount())
+    trigramCalc.calculateForAllDirectories(bigramCalc.getBigramCount())
     # estimating probability of test text
     trigramCalc.estimateProbability(testFileName)
     # predict next word
