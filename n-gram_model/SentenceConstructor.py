@@ -40,10 +40,11 @@ class SentenceConstructor():
                         eosWord = currSent.pop()
                         searchEos = re.search(regexEos, eosWord)
                         if searchEos is None:
-                            currSent.append(".")
+                            # currSent.append(".")
+                            pass
                         else:
                             currSent.append(searchEos.string[0:searchEos.start(0)])
-                            currSent.append(searchEos.string[searchEos.start(0):searchEos.end(0)])
+                            # currSent.append(searchEos.string[searchEos.start(0):searchEos.end(0)])
 
                         sentences.append(currSent)
                         # print currSent + "\n"
@@ -61,10 +62,10 @@ class SentenceConstructor():
                     if searchPunct:
                         # print searchPunct.string[0:searchPunct.start(0)], searchPunct.string[searchPunct.start(0):searchPunct.end(0)]
                         currSent.append(searchPunct.string[0:searchPunct.start(0)])
-                        currSent.append(searchPunct.string[searchPunct.start(0):searchPunct.end(0)])
+                        # currSent.append(searchPunct.string[searchPunct.start(0):searchPunct.end(0)])
                     elif searchEos:
                         currSent.append(searchEos.string[0:searchEos.start(0)])
-                        currSent.append(searchEos.string[searchEos.start(0):searchEos.end(0)])
+                        # currSent.append(searchEos.string[searchEos.start(0):searchEos.end(0)])
                     else:
                         # print word
                         currSent.append(token)

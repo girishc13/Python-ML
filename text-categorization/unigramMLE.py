@@ -17,6 +17,7 @@ class UnigramMLE():
 
     # calculates the unigram model training parameters
     def calculate(self):
+        regexPunct = r'\?|\!\s|\?\$|\!$|\.\s|\.$|\,|\:'
 
         # iterate through the directory
         for classDir in os.listdir(self.dirName):
@@ -33,11 +34,19 @@ class UnigramMLE():
 
             # Calculate total word count and number of occurrences for each word
             for sentence in sentences:
-                for word in sentence.split():
+                for token in sentence.split():
                     totalWordCount += 1
 
-                    # if word == ".":
+                    if token == ".":
+                        continue
                     # word = "<s>"
+
+                    matchPunct = re.search(regexPunct, token, re.MULTILINE)
+                    if matchPunct:
+                        searchPunct = re.search(regexPunct, token)
+                        word = searchPunct.string[0:searchPunct.start(0)]
+                    else:
+                        word = token
 
                     if word in self.unigramCount[classDir]:
                         self.unigramCount[classDir][word] += 1
