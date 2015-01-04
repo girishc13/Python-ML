@@ -39,3 +39,7 @@ if __name__ == "__main__":
     classifier.train_classifier()
     classifier.test_classifier(buildTestDirectory())
     print "Done."
+
+    word = "Terminal"
+    print "Predicting word, " , word
+    classifier.predict(word)

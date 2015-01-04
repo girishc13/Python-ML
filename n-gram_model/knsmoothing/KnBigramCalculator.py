@@ -1,5 +1,6 @@
 from __future__ import division
 from math import log
+import operator
 
 '''
 Bigram calculator uses KN smoothing
@@ -87,6 +88,22 @@ class KnBigramCalculator(object):
                     prevWord = currWord
 
         return probEst
+
+    def predict(self, word):
+        wordProb = ()
+        possibleWordProbs = {}
+        for bigramTuple in self.counts.keys():
+            prevWord = bigramTuple[1]
+            if prevWord == word:
+                probEst = log(self.calculateBigramDiscountedProbability(bigramTuple))
+                possibleWordProbs[bigramTuple[0]] = probEst
+
+        if possibleWordProbs:
+            estimatedWordProb = max(possibleWordProbs.items(), key=operator.itemgetter(1))
+            return estimatedWordProb
+        else:
+            return None
+
 
     def calculateBigramDiscountedProbability(self, bigramTuple):
         prevWord = bigramTuple[1]

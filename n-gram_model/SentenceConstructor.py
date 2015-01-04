@@ -27,7 +27,7 @@ class SentenceConstructor():
 
         try:
             while True:
-                token = tokenIter.next()
+                token = tokenIter.next().lower()
 
                 if token == '':
                     continue
