@@ -23,8 +23,8 @@ class NBClassifier_NGram():
         self.trigramProb = {}
 
         self.unigramCalc = UnigramMLE(self.trainDir)
-        self.bigramCalc = BigramMLE(self.trainDir)
-        self.trigramCalc = TrigramMLE(self.trainDir)
+        # self.bigramCalc = BigramMLE(self.trainDir)
+        # self.trigramCalc = TrigramMLE(self.trainDir)
 
     # train the classifier using n-gram models to obtain the counts and probabilities
     def train_classifier(self):
@@ -43,29 +43,32 @@ class NBClassifier_NGram():
         self.unigramCount = self.unigramCalc.getUnigramCount()
         self.unigramProb = self.unigramCalc.getUnigramProb()
 
-        # perform bigram model calculations
-        print "Calculating Bigram model parameters..."
-        self.bigramCalc.calculate(self.unigramCount)
-
-        self.bigramCount = self.bigramCalc.getBigramCount()
-        self.bigramProb = self.bigramCalc.getBigramProb()
-
-        # perform trigram model calculations
-        print "Calculating Trigram model parameters..."
-        self.trigramCalc.calculate(self.bigramCount)
-
-        self.trigramCount = self.trigramCalc.getTrigramCount()
-        self.trigramProb = self.trigramCalc.getTrigramProb()
+        # # perform bigram model calculations
+        # print "Calculating Bigram model parameters..."
+        # self.bigramCalc.calculate(self.unigramCount)
+        #
+        # self.bigramCount = self.bigramCalc.getBigramCount()
+        # self.bigramProb = self.bigramCalc.getBigramProb()
+        #
+        # # perform trigram model calculations
+        # print "Calculating Trigram model parameters..."
+        # self.trigramCalc.calculate(self.bigramCount)
+        #
+        # self.trigramCount = self.trigramCalc.getTrigramCount()
+        # self.trigramProb = self.trigramCalc.getTrigramProb()
 
 
 
     # test the classifier using n-gram models
     def test_classifier(self):
 
+        self.unigramCalc.estimateProbabilities(self.testDir, self.priors)
+        self.unigramCalc.calculateAndPrintAccuracies()
+
         # calculate conditional probabilities of the test class using bigram model
-        self.bigramCalc.estimateProbability(self.testDir, self.priors, self.unigramProb)
+        # self.bigramCalc.estimateProbability(self.testDir, self.priors, self.unigramProb)
 
 
         print ""
         # calculate conditional probabilities of the test class using trigram model
-        self.trigramCalc.estimateProbability(self.testDir, self.priors, self.unigramProb, self.bigramProb)
+        # self.trigramCalc.estimateProbability(self.testDir, self.priors, self.unigramProb, self.bigramProb)

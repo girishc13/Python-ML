@@ -35,13 +35,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KnClassifier.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="KnClassifier.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/knsmoothing/KnClassifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7777778" vertical-offset="171" max-vertical-offset="738">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="738">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#51#112#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EstimatorAndLookUp.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.63492066" vertical-offset="324" max-vertical-offset="1116">
+              <caret line="38" column="86" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="86" />
+              <folding>
+                <element signature="e#93#108#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/gtsmoothing/BigramCalculator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="1098">
-              <caret line="44" column="54" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="54" />
+              <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -60,11 +72,21 @@
       <file leaf-file-name="KnBigramCalculator.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/knsmoothing/KnBigramCalculator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="2250">
-              <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1323" max-vertical-offset="2250">
+              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Estimator.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gtsmoothing/Estimator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,7 +126,6 @@
         <option value="$PROJECT_DIR$/gtsmoothing/BigramEstimatorAndLookUp.py" />
         <option value="$PROJECT_DIR$/gtsmoothing/UnigramCalculatorDict.py" />
         <option value="$PROJECT_DIR$/gtsmoothing/gtsmoothing.py" />
-        <option value="$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py" />
         <option value="$PROJECT_DIR$/gtsmoothing/BigramCalculatorDict.py" />
         <option value="$PROJECT_DIR$/TrigramCalculatorDict.py" />
         <option value="$PROJECT_DIR$/TrigramCalculator.py" />
@@ -123,6 +144,7 @@
         <option value="$PROJECT_DIR$/gtsmoothing/UnigramCalculator.py" />
         <option value="$PROJECT_DIR$/knsmoothing/KnClassifier.py" />
         <option value="$PROJECT_DIR$/knsmoothing/KnBigramCalculator.py" />
+        <option value="$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py" />
       </list>
     </option>
   </component>
@@ -243,7 +265,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gtsmoothing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../text-categorization" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="last.edited.regexp" value="Sample Text." />
@@ -535,7 +557,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="867" y="25" width="1053" height="1055" extended-state="0" />
+    <frame x="867" y="25" width="1053" height="1055" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -594,18 +616,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -961,37 +971,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gtsmoothing/BigramCalculator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="1098">
+          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/knsmoothing/KnBigramCalculator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="2250">
-          <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1323" max-vertical-offset="2250">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gtsmoothing/BigramCalculator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="415" max-vertical-offset="1098">
-          <caret line="44" column="54" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="225" max-vertical-offset="1116">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding>
-            <element signature="e#93#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gtsmoothing/Estimator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5714286" vertical-offset="0" max-vertical-offset="567">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
@@ -999,10 +999,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/knsmoothing/KnClassifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7777778" vertical-offset="171" max-vertical-offset="738">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="738">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#51#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gtsmoothing/EstimatorAndLookUp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63492066" vertical-offset="324" max-vertical-offset="1116">
+          <caret line="38" column="86" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="86" />
+          <folding>
+            <element signature="e#93#108#0" expanded="true" />
           </folding>
         </state>
       </provider>
