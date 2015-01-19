@@ -11,5 +11,4 @@ long-term banks - 90-120 days 4.12 pct (4.25) 120-150 days 4.12 pct
 (4.23) 150-180 days unquoted (4.03) 180-270 days 4.05 pct (4.05) Over
 270 days 4.05 pct (unqtd) Average yen bankers acceptance rates of
 city, trust and long-term banks - 30 to less than 60 days 3.98 pct
-(4.20) 60-90 days 4.03 pct (3.97) 90-120 days unquoted (unqtd) REUTER
-
+(4.20) 60-90 days 4.03 pct (3.97) 90-120 days unquoted (unqtd)

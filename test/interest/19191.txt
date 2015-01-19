@@ -57,4 +57,4 @@ together to resemble a bond and selling them to an investor. For
 technical reasons securitisation is simpler and more efficient with
 fixed rate rather than with floating rate mortgages. In the U.S.,
 Where fixed rate mortgages are popular again, securitisation has
-provided the bulk of mortgage money over the past few years. REUTER 
+provided the bulk of mortgage money over the past few years.
