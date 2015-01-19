@@ -31,14 +31,14 @@ class MegaDocumentConstructor():
 if __name__ == '__main__':
     
     currentDir = os.curdir
-    trainDir = os.path.join(currentDir, "train")
+    trainDir = os.path.join(currentDir, os.pardir, "train")
     docConstrucotr = MegaDocumentConstructor()
     
     for classDirName in os.listdir(trainDir):
         classDir = os.path.join(trainDir, classDirName)
         docConstrucotr.process(classDir)
         
-    testDir = os.path.join(currentDir, "test")
+    testDir = os.path.join(currentDir, os.pardir, "test")
     for classDirName in os.listdir(testDir):
         classDir = os.path.join(testDir, classDirName)
         docConstrucotr.process(classDir)
