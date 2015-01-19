@@ -3,16 +3,16 @@ Classifier for classifying reuters documents using DocumentFrequencyCalculator
 '''
 import os
 
-from DocumentFrequencyCalculator import DocumentFrequencyCalculator
-from DocumentFrequencyCalculatorDict import DocumentFrequencyCalculatorDict
+from WordFrequencyCalculator import WordFrequencyCalculator
+from WordFrequencyCalculatorDict import WordFrequencyCalculatorDict
 
 
 __author__ = 'girish'
 
 
-class DocumentFrequencyClassifier(object):
+class WordFrequencyClassifier(object):
     def __init__(self):
-        self.calculatorDict = DocumentFrequencyCalculatorDict()
+        self.calculatorDict = WordFrequencyCalculatorDict()
 
     def train(self):
         self.calculatorDict.train()

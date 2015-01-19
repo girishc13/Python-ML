@@ -1,12 +1,12 @@
 '''
 Main file for classifying reuters data using document frequency as features
 '''
-from DocumentFrequencyClassifier import DocumentFrequencyClassifier
+from WordFrequencyClassifier import WordFrequencyClassifier
 
 __author__ = 'girish'
 
 
 if __name__ == "__main__":
-    classifier = DocumentFrequencyClassifier()
+    classifier = WordFrequencyClassifier()
     classifier.train()
     classifier.test()
