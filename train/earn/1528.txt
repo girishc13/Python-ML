@@ -7,4 +7,4 @@ half Shr loss 1.96 dlrs vs profit 26 cts Net loss 8,231,000 vs profit
 996,000 Sales 30.9 mln vs 32.2 mln Avg shrs 4,205,707 vs 3,814,141
 NOTE: Current half net includes 68,000 dlr tax credit. Current year
 net both periods includes 6,700,000 dlr writedown of inventory of
-clinical chemistry products. Reuter 
+clinical chemistry products.

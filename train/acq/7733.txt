@@ -32,4 +32,4 @@ the stake held is below 25 pct if it can be considered a controlling
 interest. The controls will not be exercised in cases where the value
 of the bank's stake in a concern is below the lesser of two predefined
 limits. These limits are set at 15 billion lire or two pct of the
-total assets of the parent company of the shareholding bank. REUTER 
+total assets of the parent company of the shareholding bank.

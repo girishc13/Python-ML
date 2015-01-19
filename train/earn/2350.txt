@@ -8,4 +8,4 @@ Oper shr profit 20 cts vs loss 69 cts Oper net profit 530,000 vs loss
 NOTE: Excludes gain of 309,000 dlrs vs loss 72,000 dlrs in qtr and
 gains of 458,000 dlrs vs 23,000 dlrs in year from tax loss
 carryforwards. Includes gains of 76,000 dlrs and 378,000 dlrs in 1985
-qtr and year, respectively. Reuter 
+qtr and year, respectively.

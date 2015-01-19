@@ -12,4 +12,4 @@ follows: From 20 degrees to 34 degrees API, Mobil will adjust its
 price 0.015 of a ct per one-tenth of an API degree. Below 20 degrees
 API, the company will adjust its price 0.020 ct per one-tenth of a
 degree. Crude grades from 34 degrees API to above 40 degrees are
-unaffected. Reuter 
+unaffected.

@@ -22,4 +22,4 @@ its research and development spending to about 100 mln dlrs this year
 from 87 mln dlrs in fiscal 1986. He said the company plans to
 introduce several products, including two low-end systems and a data
 base that uses the SQL programming language, an industry standard.
-Tandem also won a major order from the <Bank of Tokyo>. Reuter 
+Tandem also won a major order from the <Bank of Tokyo>.

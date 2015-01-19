@@ -7,4 +7,4 @@ Oper Shr loss 40 cts vs loss 10 cts Oper net loss 2,136,000 vs loss
 mln NOTE: Excludes income from discontinued operations of 1,478,000 vs
 952,000 for qtr, and 31.2 mln vs 6,500,000 for year. Excludes
 extraordinary charge of 2,503,000 for current qtr, and 4,744,000 for
-year. Reuter 
+year.

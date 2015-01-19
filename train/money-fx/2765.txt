@@ -25,4 +25,3 @@ were: Feb'87 Jan'87 Feb'86 Long gilt 44,640 54,329 ---- Eurodollar
 3,580 1,720 2,844 T-bond 1,737 3,479 ---- Sterling 1,466 2,223 18,191
 FT-SE 1,277 657 ---- Total options 52,700 62,408 23,238 (Long gilt,
 T-bond and FT-SE index options were not trading in February 1986).
-Reuter 

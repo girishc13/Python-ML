@@ -7,4 +7,4 @@ cts vs loss five cts Net loss 571,336 vs loss 416,595 Rev 103,327 vs
 61,763 Avg shares 12,355,000 vs 8,705,000 NOTE: Company's full name is
 <Teletrak Advanced Technology Systems Inc and it is a unit of Helm
 Resources <H>. 1985 net loss includes loss from discontinued
-operations of 278,156 dlrs. Reuter 
+operations of 278,156 dlrs.

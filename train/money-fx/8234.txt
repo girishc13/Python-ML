@@ -9,4 +9,4 @@ rate of the lowest successful bid made at the auction. This should
 discourage banks from bidding high to ensure that they were successful
 while paying the lower "marginal" rate, analysts said. The Central
 Bank also announced the auctions would be fortnightly, not weekly,
-beginning on April 2. Reuter 
+beginning on April 2.

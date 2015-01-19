@@ -15,4 +15,4 @@ are PEG-superoxide disdmutase and PEG-catalase, for use against oxygen
 toxicity disorders that cause the often-fatal tissue damage associated
 with severe burns, organ transplants, heart attacks and trauma, and
 PEG-uricase, for treatment of gout and other conditions caused by the
-buildup of high levels of uric acid in the body. Reuter 
+buildup of high levels of uric acid in the body.

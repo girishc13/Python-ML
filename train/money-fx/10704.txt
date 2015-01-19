@@ -34,4 +34,4 @@ the cost of liquidity through repurchase accords will not differ much
 from that on dollar swaps. But a bank using dollars to obtain
 liquidity would foresake interest on the U.S. Currency while the
 underlying treasury bill investment is unaffected in a repurchase
-accord. REUTER 
+accord.

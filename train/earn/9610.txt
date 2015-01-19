@@ -6,4 +6,4 @@ Oper shr loss 16 cts vs loss 44 cts Oper net loss 8,926,000 vs loss
 loss 2.24 dlrs Oper net loss 221.8 mln vs loss 53.7 mln Revs 51.4 mln
 vs 94.4 mln Note: Oper net excludes losses from discontinued
 operations of 228,000 dlrs vs 4,253,000 dlrs for qtr and 10.4 mln dlrs
-vs 14.2 mln dlrs for year. Reuter 
+vs 14.2 mln dlrs for year.

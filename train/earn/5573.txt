@@ -7,4 +7,4 @@ loss 3,296,000 Sales 329.4 mln vs 368.0 mln 1st half Oper shr profit
 Sales 691.3 mln vs 738.2 mln NOTE: Prior half net includes pretax
 charge 21.4 mln dlrs from plant closings and workforce reductions.
 Current year net excludes tax credits of 1,381,000 dlrs in quarter and
-1,722,000 dlrs in half. Reuter 
+1,722,000 dlrs in half.

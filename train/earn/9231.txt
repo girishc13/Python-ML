@@ -7,4 +7,4 @@ vs 684,000 Sales 100.5 mln vs 115.6 mln Avg shrs 700,086 vs 1,079,165
 NOTE: 1986 net excludes tax credits of 1,042,000 dlrs in quarter and
 1,603,000 dlrs in year. Net excludes discontinued operations gain
 330,000 dlrs vs loss 385,000 dlrs in quarter and gain 485,000 dlrs vs
-loss 2,692,000 dlrs in year. Reuter 
+loss 2,692,000 dlrs in year.

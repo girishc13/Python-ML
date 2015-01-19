@@ -7,4 +7,4 @@ Shr loss 30 cts vs loss 31 cts Net loss 1.0 mln vs loss 1.0 mln Revs
 net includes loss of 37,000 dlrs and 538,000 dlrs, respectively from
 from discontinued operations. 1986 net includes 1.7 mln dlr credit.
 1985 year and qtr includes gain of 1.0 mln dlrs and loss of 190,000,
-respectively from discontinued operations. Reuter 
+respectively from discontinued operations.

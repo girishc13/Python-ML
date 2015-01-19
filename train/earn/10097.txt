@@ -7,4 +7,3 @@ cts Oper net 1,365,655 vs 1,268,847 Revs 40.1 mln vs 33.1 mln Avg shrs
 2,695,206 vs 2,562,160 NOTE: Net excludes tax credits of 571,000 dlrs
 vs 496,000 dlrs in quarter and 1,347,000 dlrs vs 1,107,000 dlrs in
 year. Share adjusted for one-for-five reverse split in October 1986.
-Reuter 

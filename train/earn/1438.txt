@@ -7,4 +7,4 @@ Shr loss 2.45 dlrs vs loss 1.73 dlrs Net loss 11,607,104 vs loss
 7,442,825 Revs 32.6 mln vs 33.2 mln Avg shrs 4.7 mln vs 4.3 mln NOTE:
 1986 net loss includes a fourth quarter charge of 10.5 mln dlrs from
 writeoffs of certain assets. 1985 net loss includes a charge of about
-2.3 mln dlrs from settlement of class action lawsuit. Reuter 
+2.3 mln dlrs from settlement of class action lawsuit.
