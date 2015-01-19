@@ -11,8 +11,8 @@ if __name__ == "__main__":
     for line in tweets_file:
         try:
             tweet = json.loads(line)
-            # if 'detroit' in tweet['text']:
-            #     print tweet['user']['location']
+            if 'ford' in tweet['text']:
+                print tweet['text']
             tweets_data.append(tweet)
         except:
             continue
