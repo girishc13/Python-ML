@@ -48,9 +48,11 @@
       <file leaf-file-name="stanford_nlp_parser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stanford_nlp_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36197442" vertical-offset="0" max-vertical-offset="547">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-              <folding />
+            <state vertical-scroll-proportion="0.559415" vertical-offset="0" max-vertical-offset="547">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+              <folding>
+                <element signature="e#28#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,11 +141,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../libraries/corenlp-python" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
   </component>
@@ -157,27 +159,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.python_scanner">
-    <configuration default="false" name="regex_tester2_tokens" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="sentence_construction" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/regex_tester2_tokens.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.stanford_nlp_parser">
     <configuration default="false" name="sentence_constructor_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -251,6 +233,26 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sentence_construction" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_scanner.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="stanford_nlp_parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sentence_construction" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/stanford_nlp_parser.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -380,19 +382,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.regex_tester2_tokens" />
-      <item index="1" class="java.lang.String" itemvalue="Python.sentence_constructor_main" />
-      <item index="2" class="java.lang.String" itemvalue="Python.tokenizer_main" />
-      <item index="3" class="java.lang.String" itemvalue="Python.python_tokenizer" />
-      <item index="4" class="java.lang.String" itemvalue="Python.python_scanner" />
+      <item index="0" class="java.lang.String" itemvalue="Python.sentence_constructor_main" />
+      <item index="1" class="java.lang.String" itemvalue="Python.tokenizer_main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.python_tokenizer" />
+      <item index="3" class="java.lang.String" itemvalue="Python.python_scanner" />
+      <item index="4" class="java.lang.String" itemvalue="Python.stanford_nlp_parser" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.python_scanner" />
-        <item index="1" class="java.lang.String" itemvalue="Python.python_tokenizer" />
-        <item index="2" class="java.lang.String" itemvalue="Python.tokenizer_main" />
-        <item index="3" class="java.lang.String" itemvalue="Python.sentence_constructor_main" />
-        <item index="4" class="java.lang.String" itemvalue="Python.regex_tester2_tokens" />
+        <item index="0" class="java.lang.String" itemvalue="Python.stanford_nlp_parser" />
+        <item index="1" class="java.lang.String" itemvalue="Python.python_scanner" />
+        <item index="2" class="java.lang.String" itemvalue="Python.python_tokenizer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.tokenizer_main" />
+        <item index="4" class="java.lang.String" itemvalue="Python.sentence_constructor_main" />
       </list>
     </recent_temporary>
   </component>
@@ -479,21 +481,19 @@
           <line>56</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/stanford_nlp_parser.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="131" />
+      <option name="time" value="134" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/GoodTuringSmoothing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="630">
-          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UnigramCalculator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1474" max-vertical-offset="2400">
@@ -850,11 +850,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../libraries/corenlp-python/corenlp/corenlp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9739413" vertical-offset="8688" max-vertical-offset="10998">
+          <caret line="542" column="36" selection-start-line="542" selection-start-column="36" selection-end-line="542" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/stanford_nlp_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36197442" vertical-offset="0" max-vertical-offset="547">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
+        <state vertical-scroll-proportion="0.559415" vertical-offset="0" max-vertical-offset="547">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="e#28#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
