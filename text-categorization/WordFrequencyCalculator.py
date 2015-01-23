@@ -2,6 +2,8 @@
 Document Frequency calculator for input data
 '''
 import collections
+import re
+from nltk import WordPunctTokenizer
 
 from sentenceconstructor import SentenceConstructor
 
@@ -14,12 +16,25 @@ class WordFrequencyCalculator(object):
         self.sentenceConstructor = SentenceConstructor()
 
     def train(self, filePath):
-        # rawData = open(filePath, 'r').read()
-        # sentenceList = re.split(r'( *[\.])', rawData)
-        sentenceList = self.sentenceConstructor.construct(filePath, excluePunctuations=True)
+        rawData = open(filePath, 'r').read()
+
+        # sentenceList = re.split(r'\s', rawData)
+        # # sentenceList = self.sentenceConstructor.construct(filePath, excluePunctuations=True)
+        # wFCount = {}
+        # for sentence in sentenceList:
+        #     for token in sentence.split():
+        #         if token in wFCount:
+        #             wFCount[token] += 1
+        #         else:
+        #             wFCount[token] = 1
+
         wFCount = {}
-        for sentence in sentenceList:
-            for token in sentence:
+        punctRegex = r'[-\.<>,\/0-9$!\'\"\(\)&*:;]'
+        tokenizer = WordPunctTokenizer()
+        tokenList = tokenizer.tokenize(rawData)
+        for token in tokenList:
+            matchPunct = re.search(punctRegex, token)
+            if not matchPunct and token != '\x03':
                 if token in wFCount:
                     wFCount[token] += 1
                 else:
