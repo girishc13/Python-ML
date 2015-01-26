@@ -18,11 +18,11 @@ class WordFrequencyCalculatorDict(object):
             calculator = WordFrequencyCalculator()
             self.calculators[trainDir] = calculator
             filePath = os.path.join(os.curdir, os.pardir, 'train', trainDir, trainDir + '_mega.txt')
-            calculator.train(filePath)
-            self.aggregatedWordSet.update(calculator.dfCountThresh)
+            calculator.calculateWordFreqs(filePath)
+            self.aggregatedWordSet.update(calculator.featureDict)
 
         for trainDir in os.listdir(os.path.join(os.curdir, os.pardir, 'train')):
-            self.calculators[trainDir].updateWfCount(self.aggregatedWordSet)
+            self.calculators[trainDir].calculateWfCountForInputSet(self.aggregatedWordSet)
 
         self.trainClassList = self.calculators.keys()
         self.target = [i for i in range(0, len(self.trainClassList))]
@@ -43,8 +43,8 @@ class WordFrequencyCalculatorDict(object):
             for fileName in os.listdir(os.path.join(os.curdir, os.pardir, 'test', testDir)):
                 filePath = os.path.join(os.curdir, os.pardir, 'test', testDir, fileName)
                 testCalculator = WordFrequencyCalculator()
-                testCalculator.train(filePath)
-                wfCount = testCalculator.updateWfCount(self.aggregatedWordSet)
+                testCalculator.calculateWordFreqs(filePath)
+                wfCount = testCalculator.calculateWfCountForInputSet(self.aggregatedWordSet)
                 tempFile = open('temp_out.txt', 'w')
                 tempFile.writelines("%s %d \n" %(key, value) for key, value in wfCount.iteritems())
                 data = wfCount.values()
