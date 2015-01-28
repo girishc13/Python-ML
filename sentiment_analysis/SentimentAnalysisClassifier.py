@@ -10,7 +10,10 @@ class SentimentAnalysisClassifier(object):
         self.unigramCalculatorDict = UnigramCalculatorDict()
 
     def train(self):
-        self.unigramCalculatorDict.train()
+        # self.unigramCalculatorDict.trainNaiveBayes()
+        self.unigramCalculatorDict.trainWithSVM()
 
     def test(self):
-        self.unigramCalculatorDict.test()
+    #     self.unigramCalculatorDict.testWithNaiveBayes()
+        self.unigramCalculatorDict.testWithSVM()
+
