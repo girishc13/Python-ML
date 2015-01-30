@@ -1,3 +1,6 @@
+from __future__ import division
+from matplotlib import verbose
+
 '''
 Class which performs sentiment analysis calculations on the input file
 '''
@@ -67,6 +70,11 @@ class UnigramCalculator(object):
                 self.wfCountAgg[token] = self.__featureDict[token]
             else:
                 self.wfCountAgg[token] = 0
+        # for token in inputWordSet:
+        #     if token in self.__featureDict:
+        #         self.wfCountAgg[token] = 1
+        #     else:
+        #         self.wfCountAgg[token] = 0
 
         self.wfCountAgg = collections.OrderedDict(sorted(self.wfCountAgg.items()))
         return self.wfCountAgg
@@ -76,19 +84,37 @@ class UnigramCalculator(object):
         train_target = []
 
         train_data.append(self.__featureDict.values())
+        # train_data.append(self.calculateWfCountForInputSet(self.__featureDict.keys()).values())
         train_target.append(1)
 
         for negFeatures in negativeClassFeatureList:
             train_data.append(negFeatures)
             train_target.append(0)
 
-        self.__svc = svm.SVC()
-        self.__svc.fit(train_data, train_target)
+        #  normalize data
+        norm_feature_list = []
+        for feature in train_data:
+            maxVal = max(feature)
+            minVal = min(feature)
+            normFeature = [(val - minVal)/(maxVal - minVal) for val in feature]
+            norm_feature_list.append(normFeature)
 
-        # test_predict = self.__svc.predict(self.__featureDict.values())
-        test_predict = self.__svc.predict(train_data[2])
+        self.__svc = svm.SVC(verbose=True)
+        # self.__svc.fit(train_data, train_target)
+        self.__svc.fit(norm_feature_list[0:2], train_target[0:2])
+        # self.__svc.fit(norm_feature_list, range(0, len(norm_feature_list)))
+
+        # test_predict_self = self.__svc.predict(train_data[0])
+        # test_predict_test = self.__svc.predict(train_data[2])
+        test_predict_self = self.__svc.predict(norm_feature_list[0])
+        test_predict_test = self.__svc.predict(norm_feature_list[2])
+        # for feature in norm_feature_list:
+        #     print self.__svc.predict(feature)
 
         return
 
     def testWithSvm(self, testFeatures):
-        return self.__svc.predict(testFeatures)
+        maxVal= max(testFeatures)
+        minVal = min(testFeatures)
+        normFeature= [(val - minVal)/(maxVal - minVal) for val in testFeatures]
+        return self.__svc.predict(normFeature)
