@@ -1,13 +1,13 @@
 '''
 Sentiment Analysis Classifier for training and testing IMDB data
 '''
-from UnigramCalculatorDict import UnigramCalculatorDict
+from WordFrequencyCalculatorDict import WordFrequencyCalculatorDict
 
 __author__ = 'girish'
 
 class SentimentAnalysisClassifier(object):
     def __init__(self):
-        self.unigramCalculatorDict = UnigramCalculatorDict()
+        self.unigramCalculatorDict = WordFrequencyCalculatorDict()
 
     def train(self):
         # self.unigramCalculatorDict.trainNaiveBayes()

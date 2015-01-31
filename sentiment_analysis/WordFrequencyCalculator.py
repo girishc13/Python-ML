@@ -11,7 +11,7 @@ import collections
 __author__ = 'girish'
 
 
-class UnigramCalculator(object):
+class WordFrequencyCalculator(object):
     def calculateUnigramWordCount(self, fileName):
         textData = self.extractDataFromFile(fileName)
         self.unigramCount = {}

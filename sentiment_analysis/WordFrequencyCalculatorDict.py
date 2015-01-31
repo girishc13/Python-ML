@@ -7,13 +7,13 @@ Class to hold sentiment analysis unigram calculators
 import operator
 import os
 from sklearn import svm
-from UnigramCalculator import UnigramCalculator
+from WordFrequencyCalculator import WordFrequencyCalculator
 
 __author__ = 'girish'
 
-class UnigramCalculatorDict(object):
+class WordFrequencyCalculatorDict(object):
     def initAndTrainClassifier(self, className, fileName):
-        posCalculator = UnigramCalculator()
+        posCalculator = WordFrequencyCalculator()
         self.__calculators[className] = posCalculator
         filePath = os.path.join(os.curdir, fileName)
         posCalculator.train(filePath)
@@ -45,7 +45,7 @@ class UnigramCalculatorDict(object):
             self.testForFileNameReutersWithNaiveBayes(megaDocPath)
 
     def initAndTrainNaiveBayesClassifierForReuters(self, className, megaDocPath):
-        posCalculator = UnigramCalculator()
+        posCalculator = WordFrequencyCalculator()
         self.__calculators[className] = posCalculator
         posCalculator.train(megaDocPath)
 
@@ -100,7 +100,7 @@ class UnigramCalculatorDict(object):
 
 
     def initAndCalculateSvmFeaturesForReuters(self, className, megaDocPath):
-        posCalculator = UnigramCalculator()
+        posCalculator = WordFrequencyCalculator()
         self.__calculators[className] = posCalculator
         posCalculator.calculateFeatureList(megaDocPath)
 
@@ -144,7 +144,7 @@ class UnigramCalculatorDict(object):
 
             for fileName in os.listdir(os.path.join(os.curdir, os.pardir, 'test', testDir)):
                 filePath = os.path.join(os.curdir, os.pardir, 'test', testDir, fileName)
-                testCalculator = UnigramCalculator()
+                testCalculator = WordFrequencyCalculator()
                 testCalculator.calculateFeatureList(filePath)
                 testCalculator.calculateWfCountForInputSet(self.__aggregatedWordSet)
                 # tempFile = open('temp_out.txt', 'w')
@@ -177,7 +177,7 @@ class UnigramCalculatorDict(object):
 
     def testForFileNameReutersWithSvm(self, megaDocPath):
         estimations = {}
-        testCalculator = UnigramCalculator()
+        testCalculator = WordFrequencyCalculator()
         testCalculator.train(megaDocPath)
         for className, trainCalculator in self.__calculators.iteritems():
             testFeatures = testCalculator.calculateWfCountForInputSet(trainCalculator.featureDict.keys()).values()
