@@ -32,10 +32,7 @@ class StdOutListener(StreamListener):
 
 
 if __name__ == "__main__":
-    consumer_key = "wdJV2pAOnksaRAbB1HUcS6H7P"
-    consumer_secret = "BsGUbPSpiYa9BNwcai6xa2eLSzI25jDOUDSR9ZTm8AaWpGsa9Z"
-    access_token = "2245889773-K4eVW0aIMxEdmg1JMjfxvV3eKMUkR2IUvCAOgyq"
-    access_secret = "M0S3hwHpIzMWhUUQItvSGpYhwcDqGWSpfrM9uDuEv7brV"
+    // create access tokens from local acocunt
     auth = OAuth(access_token, access_secret, consumer_key, consumer_secret)
 
     # streamUsingTwitterMaster(auth)
